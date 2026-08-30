@@ -11,6 +11,8 @@ type BrandShowcaseProps = {
   domain: string;
   services: string[];
   tone: 'health' | 'finance';
+  audiences: string;
+  visitLabel?: string;
 };
 
 export default function BrandShowcase({
@@ -24,9 +26,11 @@ export default function BrandShowcase({
   domain,
   services,
   tone,
+  audiences,
+  visitLabel = 'Visitar',
 }: BrandShowcaseProps) {
   return (
-    <article className={`brand-showcase brand-showcase--${tone}`}>
+    <article className={`brand-showcase brand-showcase--${tone}`} data-reveal>
       <div className='brand-showcase__visual'>
         <span className='brand-showcase__number'>{number}</span>
         <div className='brand-showcase__logo-frame'>
@@ -37,6 +41,7 @@ export default function BrandShowcase({
       <div className='brand-showcase__content'>
         <p className='eyebrow'>{category}</p>
         <h3>{name}</h3>
+        <p className='brand-showcase__audiences'>{audiences}</p>
         <p className='brand-showcase__description'>{description}</p>
         <ul>
           {services.map((service) => (
@@ -47,7 +52,7 @@ export default function BrandShowcase({
           ))}
         </ul>
         <a className='brand-showcase__link' href={href} target='_blank' rel='noreferrer'>
-          Visitar {domain}
+          {visitLabel} {domain}
           <span aria-hidden='true'>↗</span>
         </a>
       </div>

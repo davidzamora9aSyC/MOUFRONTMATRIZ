@@ -10,6 +10,7 @@ const frames = [
   '/images/process-ready.png',
 ];
 
+
 function slideVisibility(index: number, progress: number, count: number) {
   if (count <= 1) return 1;
   const x = progress * (count - 1);

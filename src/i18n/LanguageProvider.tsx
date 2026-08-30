@@ -8,7 +8,7 @@ const STORAGE_KEY = 'mou-lang';
 type LanguageContextValue = {
   locale: Locale;
   setLocale: (locale: Locale) => void;
-  t: (typeof dictionaries)['en'];
+  t: (typeof dictionaries)[Locale];
 };
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
